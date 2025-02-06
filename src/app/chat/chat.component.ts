@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { UserService } from '../service/user-service/user.service';
 import { SocketService } from '../service/socket-service/socket.service';
+import { map } from 'rxjs';
 
 @Component({
     selector: 'app-chat',
@@ -40,6 +41,12 @@ export class ChatComponent implements OnChanges, OnInit {
                 console.log(err);
             }
         );
+        // this.socketService.receiveMessage().pipe(
+        //     map((data: any) => {
+        //         this.messages.push(data);
+        //         console.log(data);
+        //     })
+        // );
     }
 
     ngOnChanges(): void {
@@ -70,8 +77,8 @@ export class ChatComponent implements OnChanges, OnInit {
             sendTo: this.sendToUserData,
             text: this.textMessage,
         });
-        console.log(this.scrollbar.nativeElement.scrollTop);
-        console.log(this.scrollbar.nativeElement.scrollHeight);
+        // console.log(this.scrollbar.nativeElement.scrollTop);
+        // console.log(this.scrollbar.nativeElement.scrollHeight);
         this.apiService
             .sendText({
                 conversationId: this.conversationId,
