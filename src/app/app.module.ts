@@ -13,7 +13,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SocketIoModule } from 'ngx-socket-io';
 const socketCongif = {
-    url: 'https://chat-app-socket-1j41.onrender.com',
+    url: 'http://localhost:5555',
 };
 @NgModule({
     declarations: [
