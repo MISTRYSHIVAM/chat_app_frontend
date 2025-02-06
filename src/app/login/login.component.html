@@ -1,0 +1,81 @@
+<div>
+    <h1>Login form</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <table>
+            <tr>
+                <td>
+                    <label for="userName">Enter userName</label>
+                </td>
+                <td>
+                    <input
+                        type="text"
+                        id="userName"
+                        formControlName="userName"
+                        placeholder="Enter userName"
+                        class="textBox"
+                    /><br />
+                    <h5
+                        *ngIf="
+                            loginForm.get('userName')?.touched &&
+                            loginForm.get('userName')?.hasError('required')
+                        "
+                    >
+                        UserName Required
+                    </h5>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password">Enter password</label>
+                </td>
+                <td>
+                    <input
+                        type="password"
+                        id="password"
+                        formControlName="password"
+                        placeholder="Enter password"
+                        class="textBox"
+                    />
+                    <h5
+                        *ngIf="
+                            loginForm.get('password')?.touched &&
+                            loginForm.get('password')?.hasError('required')
+                        "
+                    >
+                        Password Required
+                    </h5>
+                    <h5
+                        *ngIf="
+                            loginForm.get('password')?.touched &&
+                            loginForm.get('password')?.hasError('minlength')
+                        "
+                    >
+                        Password must be 8 character long
+                    </h5>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input
+                        type="submit"
+                        [disabled]="loginForm.invalid"
+                        (click)="login()"
+                        value="login"
+                        class="btn"
+                    />
+                    <!-- <button routerLink="/conversation">Signup</button> -->
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <h5 *ngIf="hasError">{{ errorMessage }}</h5>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    I don't have an account <a routerLink="/reg">Register</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+.btn {
+    padding: 10px;
+    cursor: pointer;
+}
+.btn:active {
+    scale: 0.95;
+}
+.textBox {
+    padding: 12px;
+    margin: 5px;
+}

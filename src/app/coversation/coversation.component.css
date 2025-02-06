@@ -1,0 +1,34 @@
+.conversationController {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    /* background-color: gainsboro; */
+}
+.friend-list,
+.online-friend {
+    flex-grow: 1;
+    background-color: bisque;
+    height: 100%;
+}
+.friend-list h3,
+.online-friend h3 {
+    margin: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+}
+.friend-list h3:hover,
+.online-friend h3:hover {
+    background-color: gainsboro;
+    cursor: pointer;
+}
+.message-div {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 800px;
+}
+
+.messages {
+    height: 100%;
+}

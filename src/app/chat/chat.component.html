@@ -1,0 +1,34 @@
+<div class="chatbox">
+    <h2>{{ sendToUserData.userName }}</h2>
+    <div class="messageList" #scrollBar>
+        <div *ngFor="let message of messages; trackBy: uniqueMessgae">
+            <div
+                class="messageDiv"
+                [class.right]="
+                    message.sender.userName == currentUserData.userName
+                "
+                (load)="getTime(message.createdAt)"
+            >
+                <!-- <h5>{{ message.sender.userName }}</h5> -->
+                <h4>{{ message.text }}</h4>
+                <!-- <h6>{{ getTime() }}</h6> -->
+            </div>
+        </div>
+    </div>
+    <div class="inputMesages">
+        <input
+            type="text"
+            class="inputText"
+            [(ngModel)]="textMessage"
+            required
+        />
+
+        <button
+            class="btn"
+            (click)="sendMessage()"
+            [disabled]="textMessage.trim() == ''"
+        >
+            Send
+        </button>
+    </div>
+</div>

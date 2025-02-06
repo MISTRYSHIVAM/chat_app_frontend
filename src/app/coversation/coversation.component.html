@@ -1,0 +1,59 @@
+<!-- <div>
+    <h1>Conversation list</h1>
+
+    <div *ngFor="let chat of conversations"> -->
+<!-- <h4>conId : {{ chat?._id }}</h4> -->
+<!-- <h4 *ngIf="chat?.members.length == 1" (click)="getChat(chat?._id)">
+            {{ chat?.members[0].userName }}
+        </h4>
+    </div>
+
+    <div *ngIf="chatData?.length > 0">
+        <div *ngFor="let message of chatData">
+            <app-chat
+                [message]="message.text"
+                [sender]="message.sender"
+            ></app-chat>
+        </div>
+        <input type="text" [(ngModel)]="userMessage" />
+        <button [disabled]="!userMessage" (click)="sendMessage()">
+            send message
+        </button>
+    </div>
+</div>
+<button (click)="sendToAllUser()">send message to all user to all user</button> -->
+
+<div class="conversationController">
+    <div class="friend-list">
+        <h2 align="center" style="margin: 10px">Users</h2>
+        <h3 *ngFor="let user of allUsers" (click)="getConversation(user)">
+            {{ user.userName }}
+        </h3>
+    </div>
+    <div class="message-div">
+        <div class="messages">
+            <div *ngIf="!hasConversation">
+                <h3>{{ messageToViewer }}</h3>
+                <button
+                    *ngIf="showBtn"
+                    class="btn"
+                    (click)="startConversation()"
+                >
+                    Let's talk
+                </button>
+            </div>
+            <div *ngIf="hasConversation">
+                <app-chat
+                    [conversationId]="currentConversation"
+                    [currentUserData]="userData"
+                    [sendToUserData]="sendToUserData"
+                ></app-chat>
+            </div>
+        </div>
+    </div>
+    <div class="online-friend">
+        <h3 *ngFor="let onlineUser of onlineUsers">
+            {{ onlineUser.user.userName }}
+        </h3>
+    </div>
+</div>
